@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON To JS Object</title>
+</head>
+<body>
+<script>
+    population = [{
+        id: 1, name: 'sam',  age: 30, location: {
+            country: 'Rwanda', city: 'Kigali', street: 'KG 03 RD'
+            }, status: 'single'
+    },
+        {id: 2, name: 'doe',  age: 24, location: {
+            country: 'Uganda', city: 'Kampala', street: 'UG 03 RD'
+            }, status: 'single'}
+            ]
+
+    // console.log(population);
+    console.log(JSON.stringify(population));
+
+    // console.log(JSON.parse(JSON.stringify(population)));
+
+</script>
+</body>
+</html>

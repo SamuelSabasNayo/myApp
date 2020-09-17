@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>Local Storage</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+    </head>
+    <body>
+
+        <style>
+            input, button {
+                padding: 7px;
+                height: 40px;
+            }
+                fieldset {
+                    margin-bottom: 20px;
+                }
+        </style>
+
+        <h2 id="title">Local Storage - JavaScript</h2>
+
+        <fieldset>
+            <legend>Insert Data</legend>
+            <input id="inpKey" type="text" placeholder="Enter Key...">
+            <input id="inpValue" type="text" placeholder="Enter Value...">
+            <button type="button" id="btnInsert">Insert Data</button>
+        </fieldset>
+
+        <fieldset>
+            <legend>Local Storage</legend>
+            <div id="IsOutput"
+        </fieldset>
+    </body>
+
+    <script type="text/javascript">
+        const inpKey =document.getElementById("inKey");
+        const inpValue = document.getElementById("inpValue");
+        const btnInsert = document.getElementById("btnInsert");
+        const IsOutput = document.getElementById("IsOutput");
+
+        btnInsert.onclick = function() {
+            const key = inpKey.value;
+            const value = inpValue.value;
+
+            // console.log(key);
+            // console.log(value);
+
+            if (key && value) {
+                localStorage.setItem(key, value);
+                location.reload();
+            }
+        };
+
+        for (let i = 0; i < localStorage.length; i++) {
+            const key = localStorage.key(i);
+            const value =localStorage.getItem(key);
+
+            IsOutput.innerHtml += `${key}: ${value}<br />`;
+        }
+    </script>
+</html>
+
+
+
+
+
+
+<!-- <script>
+
+    function validation() {
+        var name = document.myForm.name.value;
+        var password = document.myForm.password.value;
+
+        if (name == null || name == '') {
+            alert("Name can't be blank");
+            return false;
+        } else if(password.length < 6) {
+            alert("Password must be at  least 6 characters long.");
+            return false;
+        }
+    }
+</script> -->
