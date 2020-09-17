@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation by Telusko</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: #383838;
+    }
+
+    form {
+        background: #858585;
+        width: 25%;
+        height: 400px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 30px;
+        border-radius: 30px;
+    }
+
+    #username {
+        margin: 10%;
+        padding: 15px 20px;
+        width: 70%;
+        font-size: 20px;
+    }
+
+    #password {
+        margin: 10%;
+        padding: 15px 20px;
+        width: 70%;
+        font-size: 20px;
+    }
+
+    button {
+        margin: 10%;
+        padding: 10px 20px;
+        width: 82.5%;
+        font-size: 25px;
+        font-weight: bold;
+        
+    }
+</style>
+
+<body>
+    <form  onsubmit="return validate()" action="message.html">
+        <input type="text" id="username" placeholder="Username"><br><br>
+        <input type="password" id="password" placeholder="Password"><br><br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+
+<script>
+    var username = document.getElementById("username");
+    var password = document.getElementById("password");
+
+    function validate() {
+        if (username.value.trim() == "" || password.value.trim() == "") {
+            alert("No blank values are allowed");
+            return false;
+        } else {
+            true;
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notification</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+            background: #ccc;
+        }
+
+        .main-container {
+            width: 100%;
+        }
+
+        .header {
+        top: 0;
+        left: 0;
+        z-index: 10;
+        width: 100%;
+        height: 10%;
+        display: flex;
+        position: fixed;
+        align-items: center;
+        justify-content: space-between;
+        background: rgb(8, 119, 119);
+        border-bottom: 1px solid rgb(8, 119, 119);
+        }
+
+        .your-highness-menu {
+            padding: 15px 25px;
+            cursor: pointer;
+        }
+
+        .your-highness-menu img {
+            height: 15px;
+            width: 30px;
+            
+        }
+
+        .user-alert
+        .user-button-event {
+            margin-right: 100px;
+            position: relative;
+            width: 100%;
+            bottom: 0; 
+
+        }
+
+        .user-alert
+        .user-button-event ul {
+            display: flex;
+            justify-content: space-around;   
+        }
+        
+        .user-alert
+        .user-button-event ul li {
+            line-height: 50px;
+            position: relative;
+            color: rgb(8, 119, 119);
+        }
+
+        .user-alert
+        .user-button-event ul li img {
+            height: 20px;
+            width: 20px;
+        }
+
+        .user-alert
+        .user-button-event ul li span::after {
+            top: 2px;
+            content: '';
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        .user-alert
+        .user-button-event ul li
+        .notification::after {
+            background: white;
+            border: 1px solid rgb(8, 119, 119);
+        }
+
+        .user-alert
+        .user-button-event ul li
+        .chat::after {
+            background: white;
+            border: 1px solid rgb(8, 119, 119);
+        }
+
+        .nav-bar {
+            position: relative;
+            margin-right: 50px;
+            font-size: 13px;}
+
+        .nav-bar ul {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .nav-bar ul li {
+            cursor: pointer;
+            color: rgb(255, 255, 255);
+            transition: all 1s ease;
+            padding: 05px 20px 05px 20px;
+            border-radius: 10px 10px 10px 10px;
+            border: 1px solid rgb(255, 255, 255);
+        }
+
+        .nav-bar ul li .active,ul li:hover {
+            color: rgb(8, 119, 119);
+            box-shadow: 0 -100px 0px rgb(255, 255, 255) inset;
+        }
+
+/*----------------------- Notification Section --------------------- */
+        
+        .notification-container {
+            position: fixed;
+            top: 13%;
+            left: 40%;
+            width: 400px;
+            border-radius: 05px;
+            border-left: 1px solid rgb(144, 144, 144);
+        }
+
+        .notification-container::before {
+            width: 0;
+            height: 0;
+            content: "";
+            position: fixed;
+            top: 10.5%;
+            left: 45%;
+            border-bottom: 20px solid rgb(8, 119, 119);
+            border-left: 21px solid transparent;
+            border-right: 21px solid transparent;
+        }
+
+        .notification-header {
+            background: rgb(8, 119, 119);
+            color: #ffffff;
+            padding: 1px;
+            padding-left: 10px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        
+        .notification-content {
+            max-height: 400px;
+            overflow-y: scroll;
+        }
+
+        .content {
+            background: #ccc;
+            color: #7a7a7a;
+            border-bottom: 1px solid rgb(144, 144, 144);
+            min-height: 20px;
+            padding: 1px;
+            padding-left: 10px;
+        }
+
+        .notification-footer {
+            background: rgb(8, 119, 119);
+            color: #ffffff;
+            padding: 1px;
+            padding-left: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="header">
+            <div class="your-highness-menu">
+                <span>
+                <img src="../images/internalMenuIcon.png" alt="menu" />
+                </span>
+            </div>
+            <div class="user-alert">
+                <div class="user-button-event">
+                    <ul>
+                        <li>
+                            <span class="notification">
+                                <img src="../images/notificationIcon.png" alt="alert" />
+                            </span>
+                        </li>
+
+                        <li>
+                            <span class="chat">
+                                <img src="../images/chatIcon.png" alt="chat" />
+                            </span>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="nav-bar">
+                <div>
+                    <ul>
+                        <li><div>Logout</div></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="notification-container">
+            <div class="notification-header">
+                <p>Notifications</p>
+            </div>
+            <div class="notification-content">
+                <div class="content">
+                    <p>Hello!<br>You are now accepted to work with Pet Industry.
+                    </p>
+                </div>
+                <div class="content">
+                    <p>There is new appointment at 08:00 AM.
+                    </p>
+                </div>
+                <div class="content">
+                    <p>There is new appointment at 09:00 AM.
+                    </p>
+                </div>
+                <div class="content">
+                    <p>There is new appointment at 10:00 AM.
+                    </p>
+                </div>
+                <div class="content">
+                    <p>There is new appointment at 11:00 AM.
+                    </p>
+                </div>
+                <div class="content">
+                    <p>There is new appointment at 01:00 PM.
+                    </p>
+                </div>
+                <div class="content">
+                    <p>Pease! Update your information.
+                    </p>
+                </div>
+                <div class="content">
+                    <p>There is new appointment at 02:00 PM.
+                    </p>
+                </div>
+                <div class="content">
+                    <p>There is new appointment at 04:00 PM.
+                    </p>
+                </div>
+            </div>
+            <div class="notification-footer">
+                <p>Show all Notifications</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

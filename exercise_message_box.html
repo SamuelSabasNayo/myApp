@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Box</title>
+    <style>
+        :root {
+            --primaryColor: #007bff;
+            --secondColor: #59fd74;
+            --mainWhite: #fff;
+            --mainBackground:#ccc;
+        }
+        body {
+            padding: 0;
+            margin: 0;
+            background: var(--mainBackground);
+        }
+       
+        .container {
+            max-width: 500px !important;
+            margin: auto;
+            margin-top: 1%;
+            font-family: sans-serif;
+            letter-spacing: 0.5px;
+            background: var(--mainWhite);
+        }
+
+        .msg-header {
+            /* border: 1px solid #ccc; */
+            width: 100%;
+            height: 8%;
+            /* border-bottom: none; */
+            display: inline-block;
+            background-color: var(--primaryColor);
+        }
+
+        .msg-header-img {
+            border-radius: 50%;
+            width: 50px;
+            margin-left: 5%;
+            margin-top: 12px;
+            float: left;
+        }
+
+        .msg-header-img img {
+            max-width: 100%;
+            border-radius: 50%;
+        }
+
+        .active {
+            width: 150px;
+            float: left;
+            margin-top: 10px;
+        }
+
+        /* .active h4 {
+            font-size: 20px;
+            margin-left: 10px;
+            color: #fff;
+        }
+
+        .active h6 {
+            font-size: 10px;
+            margin-left: 10px;
+            line-height: 0px;
+            color: #fff;
+        } */
+
+        .name {
+            font-size: 20px;
+            margin-left: 10px;
+            color: var(--mainWhite);
+        }
+
+        .online-time {
+            font-size: 10px;
+            margin-left: 15px;
+            line-height: 0px;
+            color: var(--mainWhite);
+        }
+
+        .header-icons {
+            width: 180px;
+            float: right;
+            margin-top: 12px;
+            margin-right: 5px;
+        }
+
+        .header-icons .fa {
+            color: var(--mainWhite);
+            cursor: pointer;
+            margin: 10px;
+        }
+        .header-icons img {
+            margin-left: 10%;
+            margin-top: 8%;
+            max-width: 10%;
+            border-radius: 50%;
+        }
+
+        .chat-page {
+
+        }
+
+        .msg-inbox {
+            /* border: 1px solid #ccc; */
+            overflow: hidden;
+            /* padding-bottom: 30px; */
+        }
+
+        .chats {
+            padding: 0 0 0 20px;
+        }
+
+        .msg-page {
+            height: 480px;
+            overflow-y: auto;
+        }
+
+        .received-chats {
+            display: flex;
+        }
+
+        .received-chats-img {
+            /* display: inline-block; */
+            width: 20px;
+            float: left;
+        }
+
+        .received-chats-img img {
+            margin-top: 10px;
+            width: 100%;
+            border-radius: 50%;
+        }
+
+        .received-msg {
+            display: inline-block;
+            padding: 0 0 0 10px;
+            vertical-align: top;
+            width: 92%;
+        }
+
+        .received-msg-inbox {
+            width: 57%;
+        }
+
+        .received-msg-inbox  p {
+            background: #efefef none repeat repeat scroll 0 0;
+            border-radius: 10px;
+            color: #646464;
+            font-size: 14px;
+            padding: 5px 10px 5px 12px;
+            margin-bottom: 2px;
+            width: 100%;
+        }
+
+        .time {
+            color: #777;
+            display: block;
+            font-size: 12px;
+            margin: 8px 0 0;
+        }
+
+        .outgoing-chats {
+            overflow: hidden;
+            margin: 26px 20px;
+        }
+
+        .outgoing-chats-msg p {
+            background: var(--primaryColor) none repeat scroll 0 0;
+            color: var(--mainWhite);
+            border-radius: 10px;
+            font-size: 14px;
+            margin: 0;
+            padding: 5px 10px 5px 12px;
+            width: 100%;
+        }
+
+        .outgoing-chats-msg {
+            float: left;
+            width: 46%;
+            margin-left: 42%;
+        }
+
+        .outgoing-chats-img {
+            /* display: inline-block; */
+            width: 20px;
+            float: right;
+        }
+
+        .outgoing-chats-img img {
+            width: 100%;
+            margin-top: 10px;
+            border-radius: 50%;
+        }
+
+        .msg-bottom {
+            height: 15%;
+            display: flex;
+            background: var(--primaryColor);
+        }
+
+        .bottom-icons {
+            float: left;
+            margin-top: 20px;
+            margin-left: 20px;
+            margin-bottom: 15px;
+            /* width: 30% !important; */
+        }
+
+        /* .bottom-icons .fa {
+            color: #fff;
+            padding-left: 5px;
+        } */
+
+        .bottom-icons img {
+            width: 25px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        .input-group {
+            width: 60%;
+            float: right;
+            display: flex;
+            margin-top: 13px;
+            margin-left: 20px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            outline: none important;
+            background-color: var(--mainWhite);
+        }
+
+        .form-control {
+            width: 90%;
+            font-weight: bold;
+            /* padding-left: 20px; */
+            margin-left: 10px;
+            border: none !important;
+            border-radius: 20px !important;
+        }
+
+        .form-control:focus {
+            border-color: none !important;
+            box-shadow: none !important;
+            border-radius: 20px;
+        }
+
+        .input-group-text {
+            border: none !important;
+            background: transparent !important;
+        }
+
+        .input-group .fa {
+            float: right;
+            color: var(--primaryColor);
+        }
+
+        .input-group-append {
+            margin-left: 0px;
+        }
+
+        button {
+            float: right;
+            padding: 15px;
+            margin-left: 20px;
+            border: var(--mainWhite);
+            border-radius: 20px;
+        }
+
+        .btn-text {
+            color: var(--primaryColor);
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="msg-header">
+            <div class="msg-header-img">
+                <img src="../images/travesy.PNG">
+            </div>
+            <div class="active">
+                <!-- <h4>Travesy Media</h4>
+                <h6>2 hours ago...</h6> -->
+                <span class="name">Travesy Media</span><br>
+                <span class="online-time">2 hours ago...</span>
+            </div>
+            <div class="header-icons">
+                <i class="fa fa-phone"></i>
+                <i class="fa fa-video-camera"></i>
+                <i class="fa fa-info-circle"></i>
+                <img src="../images/fa-phone.PNG">
+                <img src="../images/fa-video-camera.PNG">
+                <img src="../images/fa-info-circle.PNG">
+            </div>
+        </div>
+        <div class="chat-page">
+            <div class="msg-inbox">
+                <div class="chats">
+                    <div class="msg-page">
+
+                        <div class="received-chats">
+                            <div class="received-chats-img">
+                                <img src="../images/travesy.PNG">
+                            </div>
+                            <div class="received-msg">
+                                <div class="received-msg-inbox">
+                                    <p>
+                                        Hi !!! This is message from Travesy Media
+                                    </p>
+                                    <span class="time">11:01 PM | June 16</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="outgoing-chats">
+                            <div class="outgoing-chats-msg">
+                                <p>
+                                    Hello! How are you doing?
+                                </p>
+                                <span class="time">11:05 PM | June 16</span>
+                            </div>
+                            <div class="outgoing-chats-img">
+                                <img src="../images/Samuel.jpg">
+                            </div>
+                        </div>
+
+                        <div class="received-chats">
+                            <div class="received-chats-img">
+                                <img src="../images/travesy.PNG">
+                            </div>
+                            <div class="received-msg">
+                                <div class="received-msg-inbox">
+                                    <p>
+                                        I'm doing good.
+                                    </p>
+                                    <span class="time">11:19 PM | June 16</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="received-chats">
+                            <div class="received-chats-img">
+                                <img src="../images/travesy.PNG">
+                            </div>
+                            <div class="received-msg">
+                                <div class="received-msg-inbox">
+                                    <p>
+                                        I'm in Kigali, hope we will meet
+                                    </p>
+                                    <span class="time">11:19 PM | June 16</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="outgoing-chats">
+                            <div class="outgoing-chats-msg">
+                                <p>
+                                    Sure!
+                                    We will meet and talk.
+                                </p><br>
+                                <p>
+                                    Anyway, I thought that you are in examination periods.
+                                    How do you combine with other works?
+                                </p>
+                                <span class="time">11:20 PM | June 16</span>
+                            </div>
+                            <div class="outgoing-chats-img">
+                                <img src="../images/Samuel.jpg">
+                            </div>
+                        </div>
+
+                        <div class="received-chats">
+                            <div class="received-chats-img">
+                                <img src="../images/travesy.PNG">
+                            </div>
+                            <div class="received-msg">
+                                <div class="received-msg-inbox">
+                                    <p>
+                                        I'm doing good.
+                                    </p>
+                                    <p>
+                                        I'm in Kigali, hope we will meet
+                                    </p>
+                                    <span class="time">11:19 PM | June 16</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="outgoing-chats">
+                            <div class="outgoing-chats-msg">
+                                <p>
+                                    Sure!
+                                    We will meet and talk.
+                                </p>
+                                <span class="time">11:20 PM | June 16</span>
+                            </div>
+                            <div class="outgoing-chats-img">
+                                <img src="../images/Samuel.jpg">
+                            </div>
+                        </div>
+
+                        <div class="outgoing-chats">
+                            <div class="outgoing-chats-msg">
+                                <p>
+                                    Anyway, I thought that you are in examination periods.
+                                    How do you combine with other works?
+                                </p>
+                                <span class="time">11:20 PM | June 16</span>
+                            </div>
+                            <div class="outgoing-chats-img">
+                                <img src="../images/Samuel.jpg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="msg-bottom">
+            <div class="bottom-icons">
+                <i class="fa fa-plus-circle"></i>
+                <i class="fa fa-camera"></i>
+                <i class="fa fa-microphone"></i>
+                <i class="fa fa-smile-o"></i>
+                <i class="fa fa-phone"></i>
+                <i class="fa fa-video-camera"></i>
+                <i class="fa fa-info-circle"></i>
+                <img src="../images/fa-phone.PNG">
+                <img src="../images/fa-camera.PNG">
+                <img src="../images/fa-info-circle.PNG">
+            </div>
+            <div class="input-group">
+                <textarea class="form-control" cols="1" rows="1">  Write message</textarea>
+                <!-- <input type="text" class="form-control" placeholder="Write message"> -->
+                <div class="input-group-append">
+                    <span class="input-group-text">
+                        <i class="fa fa-paper-plane"></i>
+                        <button><span class="btn-text">Send</span></button>
+                    </span>
+                </div>
+            </div>
+            </div>
+    </div>
+</body>
+</html>

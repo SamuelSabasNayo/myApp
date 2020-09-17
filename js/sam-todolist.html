@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- <link href="https://fonts.googleapis.com/css?family=Poppins&display" rel="stylesheet"> -->
+        <!-- <link rel="stylesheet" href="./project1.css"> -->
+        <title>Todo List</title>
+    </head>
+
+    <body>
+<style>
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background-image: linear-gradient(40deg, #1135d4, #e9e515);
+        color: white;
+        font-family: "Poppins", sans-serif;
+        /* min-height: 05vh; */
+    }
+
+    header {
+        margin-top: 80px;
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    #my-form {
+        /* min-height: 0vh; */
+        margin-top: 40px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .todo-input, .todo-button {
+        color: rgb(139, 161, 39);
+        padding: 0.5rem;
+        font-size: 2rem;
+        border: none;
+        /* border: 2px solid rgb(134, 248, 58);
+        border-radius: 20px; */
+        background: white;
+    }
+
+    .todo-button {
+        color: white;
+        background: rgb(134, 248, 58);
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .todo-button:hover {
+        color: white;
+        background: #02c764;
+    }
+
+    .msg {
+        background: rgb(210, 212, 88);
+        width: 30%;
+        height: fit-content;
+        position: absolute;
+        right: 27%;
+        font-size: larger;
+    }
+
+    .todo-container {
+        background: rgb(210, 212, 88);
+        width: 20%;
+        position: absolute;
+        right: 27%;
+        font-size: larger;
+    }
+    .todo-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .todo-list {
+        min-width: 30%;
+        list-style: none;
+    }
+
+    .todo {
+        margin: 0.5rem;
+        background: white;
+        color: black;
+        font-size: 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .todo li {
+        flex: 1;
+    }
+
+    .trash-btn, .complete-btn {
+        background: #02c764;
+        color: white;
+        border: none;
+        padding: 1rem;
+        cursor: pointer;
+        font-size: 1rem;
+    }
+</style>
+
+<header>
+    <h1>
+        SAM's Todo List
+    </h1>
+</header>
+        
+<div id="my-form">
+    <input type="text" class="todo-input" placeholder="Enter in this field">
+    <button class="todo-button" type="submit">
+        <img src="../ed-project/cross-square1.png" width="30px">
+    </button>
+</div>
+<div class="msg"></div>
+
+<div class="todo-container">
+    <ul class="todo-list"></ul>
+</div>
+        
+<script>
+    //Selectors
+    const todoInput = document.querySelector('.todo-input');
+    const todoButton = document.querySelector('.todo-button');
+    const todoList = document.querySelector('.todo-list');
+    const msg = document.querySelector('.msg');
+    const todoItems =document.querySelector('.todoItem');
+
+    //Event Listener
+    todoButton.addEventListener('click', onclick);
+
+    //Function
+    function onclick(e) {
+        e.preventDefault();
+
+        if (todoInput.value === '') {
+            msg.classList.add('error');
+            msg.innerHTML = 'Please enter in the field';
+            // alert('Please enter all fields');
+
+            setTimeout(() => msg.remove(), 3000);
+        // } if (todoInput.value === todoItems.value) {
+        //     msg.classList.add('error');
+        //     msg.innerHTML = 'That name is repeated';
+        }
+        else {
+            //Todo DIV
+            const todoDiv = document.createElement("div");
+            todoDiv.classList.add("todo");   
+                    
+            //Create LI
+            const newTodo = document.createElement('li');
+            newTodo.innerText = `${todoInput.value}`;
+            newTodo.classList.add('todoItem');
+            todoDiv.appendChild(newTodo);
+
+            //APPEND TO LIST
+            todoList.appendChild(todoDiv);
+
+
+            // alert(`${todoInput.value}`);
+            // console.log(newTodo);
+        }
+    }
+</script>
+    </body>
+
+</html>

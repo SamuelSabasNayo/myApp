@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>'this' keyword</title>
+</head>
+<body>
+    
+</body>
+<script>
+// method ---> obj
+// function ---> global (window, global)
+
+// const Video = {
+//     title: 'a',
+//     tags: ['a', 'b', 'c'],
+//     showTags() {
+//         this.tags.forEach(function(tag) {
+//             console.log(this.title, tag);
+//         }, this);
+//     }
+// };
+
+// Video.showTags();
+
+
+// const Video = {
+//     title: 'a',
+//     tags: ['a', 'b', 'c'],
+//     showTags() {
+//         this.tags.forEach(function(tag) {
+//             console.log(this, tag);
+//         });
+//     }
+// };
+
+// Video.showTags();
+
+
+// const video = {
+//     title: 'a',
+//     play() {
+//         console.log(this);
+//     }
+// };
+
+// function Video(title) {
+//     this.title = title;
+//     console.log(this);
+// }
+
+// const v = new Video('b');
+
+
+// const video = {
+//     title: 'a',
+//     play() {
+//         console.log(this);
+//     }
+// };
+
+// function playVideo() {
+//     console.log(this);
+// }
+
+// playVideo();
+
+
+// const video = {
+//     title: 'a',
+//     play() {
+//         console.log(this);
+//     }
+// };
+
+// video.stop = function() {
+//     console.log(this);
+// };
+
+// video.stop();
+
+
+const video = {
+    title: 'a',
+    play() {
+        console.log(this);
+    }
+};
+
+video.play();
+</script>
+</html>
