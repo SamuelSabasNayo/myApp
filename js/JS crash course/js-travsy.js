@@ -1,7 +1,7 @@
-const makeNoise = (() =>
-	alert('HELLO SAM'));
+// const makeNoise = (() =>
+// 	alert('HELLO SAM'));
 
-makeNoise();
+// makeNoise();
 
 // const square = (x) => x + x;
 
@@ -1102,12 +1102,12 @@ makeNoise();
 // console.log(selectedColors.length);
 
 
-// let person = {
-//     name: 'Mosh',
-//     age: 30
-// };
+let person = {
+    name: 'Mosh',
+    age: 30
+};
 
-// console.log(person);
+console.log(person);
 
 
 // let name ='Mosh';

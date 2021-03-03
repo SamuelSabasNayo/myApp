@@ -1,12 +1,12 @@
-var form = document.querySelector('form');
+// var form = document.querySelector('form');
 
-form.addEventListener('submit', runEvent);
+// form.addEventListener('submit', runEvent);
 
 
-function runEvent(e) {
-    e.preventDefault();
-    console.log('EVENT TYPE: ' + e.type);
-}
+// function runEvent(e) {
+//     e.preventDefault();
+//     console.log('EVENT TYPE: ' + e.type);
+// }
 
 
 // var select = document.querySelector('select');
@@ -44,7 +44,7 @@ function runEvent(e) {
 
 
 // var button = document.getElementById('button');
-// var box = document.getElementById('box')
+// var box = document.getElementById('box');
 
 
 // button.addEventListener('click', runEvent);
@@ -61,9 +61,9 @@ function runEvent(e) {
 // function runEvent(e) {
 //     console.log('EVENT TYPE: ' + e.type);
 
-    // output.innerHTML = '<h3>MouseX: '+e.offsetX+' </h3><h3>MouseY: '+e.offsetY+' </h3>';
+//     output.innerHTML = '<h3>MouseX: '+e.offsetX+' </h3><h3>MouseY: '+e.offsetY+' </h3>';
 
-    // box.style.backgroundColor = "rgb("+e.offsetX+", "+e.offsetY+", 40)";
+    // box.style.backgroundColor = "rgb("+e.offsetX+", "+e.offsetY+", 140)";
 
     // document.body.style.backgroundColor = "rgb("+e.offsetX+", "+e.offsetY+", 40)";
 
@@ -286,8 +286,8 @@ function runEvent(e) {
 
 // var items = document.getElementsByClassName('list-group-item');
 // items[1].textContent = 'Product 2';
-// items[1].style.fontweight = 'bold';
-// items[1].style.backgroundcolor = 'yellow';
+// items[1].style.fontweight = '700';
+// items[1].style.background = 'yellow';
 
 // var items = document.getElementsByClassName('list-group-item');
 // console.log(items);

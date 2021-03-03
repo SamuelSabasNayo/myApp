@@ -1,4 +1,3 @@
-// A SONG------WHITE NOISE, BLACK SCREEN
 // www.jabjabjavascript.com
 // Water Meter Number: 253211736
 
@@ -969,10 +968,10 @@
 
 // findLongestWord("The quick brown fox jumped over the lazy dog");
 // example
-var fruits = ["apple", "mango", "cherries"];
-for (var fruit of fruits) {
-    console.log(fruit);
-}
+// var fruits = ["apple", "mango", "cherries"];
+// for (var fruit of fruits) {
+//     console.log(fruit);
+// }
 
 
 

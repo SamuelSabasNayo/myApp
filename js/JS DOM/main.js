@@ -13,7 +13,7 @@ filter.addEventListener('keyup', filterItems);
 function addItem(e) {
     // Get input value
     // var newItem = document.getElementById('item');
-    var newItem =document.getElementById('item').value;
+    var newItem = document.getElementById('item').value;
 
     if (newItem == '') {
         alert('Invalid input');

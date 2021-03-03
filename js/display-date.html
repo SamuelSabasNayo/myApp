@@ -6,7 +6,9 @@
     <title>Display Date</title>
     <script>
         function displayDate() {
-            document.getElementById("showDate").innerHTML = Date();
+            let currentTime = new Date();
+            let time = `${currentTime.getFullYear()}-${currentTime.getMonth()}-${currentTime.getDate()}`;
+            document.getElementById("showDate").innerHTML = `${time}`;
         }
     </script>
 </head>
