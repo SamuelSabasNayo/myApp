@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Date</title>
+    <script>
+        function displayDate() {
+            let currentTime = new Date();
+            let time = `${currentTime.getFullYear()}-${currentTime.getMonth()}-${currentTime.getDate()}`;
+            document.getElementById("showDate").innerHTML = `${time}`;
+        }
+    </script>
+</head>
+<body>
+        <button type="button" onclick="displayDate()">Show Date</button>
+        <p id="showDate"></p>
+</body>
+</html>

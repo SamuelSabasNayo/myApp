@@ -1,0 +1,159 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ------------------ header ------------------ */
+header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0 6rem;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    background: #fff;
+    border-bottom: 5px solid #e8491d;
+    z-index: 1;
+}
+
+.logo-box img {
+    width: 80%;
+}
+
+.openMenu, .closeMenu {
+    font-size: 2rem;
+    display: none;
+    cursor: pointer;
+    color: #e8491d;
+}
+
+.nav-menu {
+    width: 35%;
+}
+
+.navMenuUl {
+    list-style: none;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    font-size: 22px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color:#78472C;
+}
+
+.current a {
+    color: #e8491d;
+}
+/* ------------------ end of header ------------------ */
+
+/* ------------------ media querry for header ------------------ */
+@media(max-width: 1400px) {
+    header {
+        /* display: none; */
+    }
+    
+    .nav-menu {
+    width: 38%;
+    }
+}
+@media(max-width: 1200px) {
+    header {
+        /* display: none; */
+    }
+    .nav-menu {
+        width: 40%;
+    }
+
+    .nav-menu ul {
+        font-size: 20px;
+    }
+}
+
+@media(max-width: 1100px) {
+    header {
+        /* display: none; */
+    }
+    .nav-menu {
+        width: 45%;
+    }
+    
+    .nav-menu ul {
+        font-size: 20px;
+    }
+}
+
+@media(max-width: 1000px) {
+    header {
+        /* display: none; */
+    }
+
+    .nav-menu{
+        width: 50%;
+    }
+}
+
+@media(max-width: 900px) {
+    header {
+        /* display: none; */
+    }
+
+    .nav-menu{
+        width: 50%;
+    }
+
+    .nav-menu ul {
+        font-size: 18px;
+    }
+}
+
+@media(min-width: 801px) {
+    .nav-menu {
+        display: block;
+    }
+}
+@media(max-width: 800px) {
+    header {
+        /* display: none; */
+        align-items: unset;
+    }
+
+    .nav-menu {
+        width: 20%;
+        text-align: center;
+    }
+
+    .navMenuUl {
+        display: none;
+        height: 20vh;
+        flex-direction: column;
+        transition: .5s ease;
+    }
+
+    .navMenuUl a {
+        text-align: center;
+    }
+
+    .openMenu {
+        margin: 8px 0 0 0;
+        display: block;
+        cursor: pointer;
+    }
+
+    .closeMenu {
+        margin: 8px 0 0 0;
+        display: none;
+        cursor: pointer;
+    }
+}
+/* ------------------ end of media querry for header ------------------ */

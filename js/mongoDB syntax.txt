@@ -1,0 +1,119 @@
+db.users.findByIdAndRemove({ _id: 5f8a906c88af10a3fe849f09 })
+
+
+db.posts.find({ views: {$gt:3} }).pretty()
+
+
+
+db.posts.update({ name: 'Samuel },
+    {
+        $set: {
+            geometry: {
+                type: 'point',
+                coordinates: [-80, 25.791]
+            }
+        }
+    }
+)
+
+
+
+db.posts.find({
+    $text: {
+        $search: "\"Post O\""
+    }
+})
+
+
+
+db.posts.find({
+    comments: {
+        $elemMatch: {
+            user: 'Mary Williams'
+        }
+    }
+})
+
+
+
+db.posts.update({ title: 'Post One' },
+    {
+        $set: {
+            comments: [
+                {
+                    user: 'Mary Williams',
+                    body: 'Comment One',
+                    date: Date()
+                },
+                {
+                    user: 'Hary Smith',
+                    body: 'Comment Two',
+                    date: Date()
+                },
+            ]
+        }
+    }
+)
+
+
+
+
+db.posts.update({ title: 'Post Two' },
+    {
+        $set: {
+            body: 'Body of post 2',
+            category: 'Technology'
+        }
+    }
+)
+
+
+
+db.posts.update({ title: 'Post Two' },
+    {
+        title: 'Post Two',
+        body: 'New post 2 body',
+        date: Date()
+    },
+    {
+        upsert: true
+    }
+)
+
+
+
+db.posts.insertMany([
+    {
+        title: 'Post Two',
+        body: 'Body of post two',
+        category: 'Technology',
+        date: Date()
+    },
+    {
+        title: 'Post Three',
+        body: 'Body of post three',
+        category: 'News',
+        date: Date()
+    },
+    {
+        title: 'Post Four',
+        body: 'Body of post four',
+        category: 'Entertainment',
+        date: Date()
+    }
+])
+
+
+
+db.posts.insert({
+    title: 'Post One',
+    body: 'Body of post one',
+    category: 'News',
+    likes: 4,
+    tags: ['news', 'events'],
+    user: {
+        name: 'John Doe',
+        status: 'author'
+    },
+    date: Date()
+})

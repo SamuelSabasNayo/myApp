@@ -1,0 +1,34 @@
+let n1 = 4, n2 = 5, n3 = 8;
+
+let i = 0;
+
+while (n1 < 20) {
+  i++;
+  n1 = n1 + (n2 * n3);
+  console.log(n1); // value of n1
+  
+  n2 = n1 - n2;
+  console.log(n2); // value of n2
+  
+  n3 = n1 / 2;
+  console.log(n3); // value of n3
+}
+
+// const x = 10, y = -1;
+  
+// let z, val, j;
+
+// console.log(Math.pow(10, y)); // value of pow(10, y).
+
+// z = 1.0 / Math.pow(10, y);
+// console.log(z); // value of z
+
+// val = z;
+// console.log(val);
+
+// for (let j = 1; j < x; j++) {
+//   if (j <= val) {
+//     val++;
+//   }
+  
+// }

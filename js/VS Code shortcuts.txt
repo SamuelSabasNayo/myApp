@@ -1,0 +1,58 @@
+// shortcuts
+
+// Toggle Terminal
+Ctrl + `
+
+// Create New Terminal
+Shift + Ctrl + `
+
+// Sidebar focus
+Shift + Ctrl + E
+
+// Change file Tab
+Ctrl + Tab
+
+// Duplicate Tabs
+Ctrl + \
+
+// Move by word
+Ctrl + Left
+Ctrl + Right
+
+// Go To Start & End Of File
+Ctrl + Home
+Ctrl + End
+
+// Move Line Up or Down
+Alt + Up
+Alt + Down
+
+// Copy Line Up or Down
+Shift + Alt + Up
+Shift + Alt + Down
+
+// Insert New Line
+Ctrl + Enter # insert below
+Shift + Ctrl + Enter # insert above
+
+// Jump To Matching Bracket
+Shift + Ctrl + \
+
+// Add Block Comments
+Shift + Alt + A
+
+// Highlight Code
+Shift + Any Direction
+
+// Select a Line
+Shift + Ctrl + Arrow
+
+// Select New Matching
+Ctrl + D
+
+// Add a Cursor
+Alt + Click
+
+// Go To Entities
+Ctrl + Shift + O
+
