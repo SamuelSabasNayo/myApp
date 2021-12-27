@@ -1,6 +1,9 @@
 // www.jabjabjavascript.com
 // Water Meter Number: 253211736
 
+// console.log('123' === /[\D]/g);
+
+
 // challenge 22
 // function translatePigLatin(str) {
 //     // var firstVowel = str.match(/[aeiou]/);
@@ -994,16 +997,33 @@
 
 
 
-// function palindrome(str) {
-//     var reg = /[\W_]/g;
+function palindrome(str) {
+    // var reg = /[\W_]/g;
+    var reg = /[\W_]/g;
 
-//     var smallStr = str.toLowerCase().replace(reg, "");
+    var smallStr = str.toLowerCase().replace(reg, "");
 
-//     var reversed = smallStr.split("").reverse().join("");
-//     if (reversed === smallStr) return true;
+    var reversed = smallStr.split("").reverse().join("");
+    if (reversed === smallStr) return true;
 
+    return false;
+}
+
+// console.log(palindrome("racecar*&"));
+// console.log(palindrome("sabas*&"));
+// console.log(palindrome("samuel"));
+console.log(palindrome("12321"));
+
+// const palindrome = (str) => {
+//     let reg = /[\W_]/g,
+
+//         smallStr = str.toLowerCase().replace(reg, ''),
+
+//         reversedStr = smallStr.split('').reverse().join('');
+
+//     if (reversedStr === smallStr) return true;
 //     return false;
-// }
+// };
 
 // console.log(palindrome("racecar*&"));
 // console.log(palindrome("sabas*&"));
