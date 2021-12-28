@@ -1,3 +1,18 @@
 body {
+    width: 90%;
+    margin: 20px;
+}
+
+.bmi_cal {
     background: grey;
+    width: 700px;
+}
+
+.plots-container {
+    width: 700px;
+    /* margin: auto; */
+}
+
+#myChart1, #myChart2, #myChart3, #myChar4, #myChart5 {
+    margin: 20px 0;
 }

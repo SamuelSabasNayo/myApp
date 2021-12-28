@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS PROGRAMMING</title>
     <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
 </head>
 <body>
     <h1 class="title">TITLE: JS PROGRAMMING</h1>
@@ -13,7 +14,7 @@
     <button type="button" onclick="displayDate()">Show Date</button>
     <p id="showDate"></p>
     
-    <div>
+    <div class="bmi_cal" width="500px">
         <h2 id="calTitle">BMI Calculator</h2>
         <p id="info">Please enter height [cm] and weight [kg]</p>
         <p class="text">Height</p>
@@ -22,6 +23,15 @@
         <input type="text" id="w">
         <p id="result"></p>
         <button id="btn" onclick="BMI()">Calculate</button>
+    </div>
+
+    <div class="plots-container">
+        <h1>A Simple Plotting Project</h1>
+        <canvas id="myChart1"></canvas>
+        <canvas id="myChart2"></canvas>
+        <canvas id="myChart3"></canvas>
+        <canvas id="myChart4"></canvas>
+        <canvas id="myChart5"></canvas>
     </div>
 </body>
 <script src="app.js"></script>

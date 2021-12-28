@@ -1,26 +1,183 @@
-// Working with string
-const lengthFinder = (str) => {
-    if (str.length == 0 || typeof(str) !== "string") return 0;
-    if (str.length == 1) return 1;
+let xLabels1 = [],
+    yLabels1 = [],
+    xLabels2 = [],
+    yLabels2 = [];
 
-    let strArr = str.split(""),
-        newStrArr = [],
-        longestSubStringLength = 0,
-        count = 0;
+const getData = async () => {
+    const response = await fetch('test.csv'),
+        data = await response.text();
 
-    for (let i = 0; i < str.length; i++) {
-        if (newStrArr[strArr[i]] !== undefined && newStrArr[strArr[i]] >= count) {
-            count = newStrArr[strArr[i]] + 1;
-        };
+    // console.log(data);
 
-        newStrArr[strArr[i]] = i;
+    const usefulData = data.split('\n'),
+        table = usefulData.slice(1);
 
-        longestSubStringLength = Math.max(longestSubStringLength, (i-count+1));
+        // console.log(table);
 
-    };
+    table.forEach(row => {
+        const column = row.split(',')
+            pClass = column[0],
+            yLabels2.push(pClass),
+            
+            sex = column[1],
+            xLabels1.push(sex),
+            xLabels2.push(sex),
 
-    return longestSubStringLength;
+            age = column[2],
+            yLabels1.push(age),
+            
+            survived = column[3];
+
+            // console.log(pClass, sex, age, survived);
+            // console.log(xLabels1, ylabels1);
+            // console.log(xLabels2, yLabels2);
+    });
+
 };
+
+
+const displayChart1 = async () => {
+    await getData();
+
+    const ctx = document.getElementById('myChart1').getContext('2d');
+    const myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: xLabels1,
+            datasets: [{
+                label: 'AGE against SEX',
+                data: yLabels1,
+                backgroundColor: [ 'rgba(54, 162, 235, 0.2)' ],
+                borderColor: [ 'rgba(54, 162, 235, 1)' ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    ticks: {
+                        callback: function(value, index, ticks) {
+                            return `${value} years`;
+                        }
+                    }
+                }
+            }
+        }
+    });
+};
+
+displayChart1();
+
+const displayChart2 = async () => {
+    await getData();
+
+    const ctx = document.getElementById('myChart2').getContext('2d');
+    const myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: xLabels2,
+            datasets: [{
+                label: 'PClass against SEX',
+                data: yLabels2,
+                backgroundColor: [ 'black' ],
+                borderColor: [ 'black' ],
+                borderWidth: 1
+            }]
+        },
+    });
+};
+
+displayChart2();
+
+const displayChart3 = async () => {
+    await getData();
+
+    const ctx = document.getElementById('myChart3').getContext('2d');
+    const myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: xLabels1.slice(0, 99),
+            datasets: [{
+                label: 'AGE against SEX for 100 datasets',
+                data: yLabels1.slice(0, 99),
+                backgroundColor: [ 'green' ],
+                borderColor: [ 'green' ],
+                borderWidth: 1
+            }]
+        },
+    });
+};
+
+displayChart3();
+
+const displayChart4 = async () => {
+    await getData();
+
+    const ctx = document.getElementById('myChart4').getContext('2d');
+    const myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: xLabels2.slice(0, 99),
+            datasets: [{
+                label: 'PClass against SEX for 100 datasets',
+                data: yLabels2.slice(0, 99),
+                backgroundColor: [ 'grey' ],
+                borderColor: [ 'grey' ],
+                borderWidth: 1
+            }]
+        },
+    });
+};
+
+displayChart4();
+
+
+const displayChart5 = async () => {
+    await getData();
+
+    const ctx = document.getElementById('myChart5').getContext('2d');
+    const myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: xLabels2.slice(0, 99),
+            datasets: [{
+                label: 'PClass against SEX for 100 datasets',
+                data: yLabels2.slice(0, 99),
+                backgroundColor: [ 'wheat' ],
+                borderColor: [ 'wheat' ],
+                borderWidth: 1
+            }]
+        },
+    });
+};
+
+displayChart5();
+
+
+
+// // Working with string
+// const lengthFinder = (str) => {
+//     if (str.length == 0 || typeof(str) !== "string") return 0;
+//     if (str.length == 1) return 1;
+
+//     let strArr = str.split(""),
+//         newStrArr = [],
+//         longestSubStringLength = 0,
+//         count = 0;
+
+//     for (let i = 0; i < str.length; i++) {
+//         if (newStrArr[strArr[i]] !== undefined && newStrArr[strArr[i]] >= count) {
+//             count = newStrArr[strArr[i]] + 1;
+//         };
+
+//         newStrArr[strArr[i]] = i;
+
+//         longestSubStringLength = Math.max(longestSubStringLength, (i-count+1));
+
+//     };
+
+//     return longestSubStringLength;
+// };
 
 
 // const str = "abcabcbb";
@@ -88,22 +245,22 @@ Then, the fxn will display small and large number.
 e.g. numsEvaluator([50, 60, 30, 20, 10]);
 */
 
-// const numsEvaluator = (numsArr) => {
-//     let maxNum = numsArr[0],
-//         minNum = numsArr[0];
+const numsEvaluator = (numsArr) => {
+    let maxNum = numsArr[0],
+        minNum = numsArr[0];
 
-//     for (let i = 1; i < numsArr.length; i++) {
-//         if (numsArr[i] > maxNum) {
-//             maxNum = numsArr[i];
-//         };
+    for (let i = 1; i < numsArr.length; i++) {
+        if (numsArr[i] > maxNum) {
+            maxNum = numsArr[i];
+        };
 
-//         if (numsArr[i] < minNum) {
-//             minNum = numsArr[i];
-//         }
-//     };
+        if (numsArr[i] < minNum) {
+            minNum = numsArr[i];
+        }
+    };
 
-//     return `The smallest num is ${minNum} and largest num is ${maxNum}`;
-// }; 
+    return `The smallest num is ${minNum} and largest num is ${maxNum}`;
+};
 
 // // numsEvaluator([50, 60, 30, 20, 10]);
 // console.log(numsEvaluator(numsArr));
@@ -146,6 +303,22 @@ e.g. numsEvaluator([50, 60, 30, 20, 10]);
 
 //     return array;
 // };
+
+const fibonacci = (totalLength) => {
+    let num1 = 0, num2 = 1, nextNum, count = 2, array = [];
+    console.log("Fibonacci sequence!");
+
+    while (count < totalLength) {
+        nextNum = num1 + num2;
+        num1 = num2;
+        num2 = nextNum;
+
+        array.push(nextNum);
+        count ++
+    };
+
+    return array;
+};
 
 // // console.log(fibonacci(15));
 // console.log(fibonacci(totalLength));
@@ -659,22 +832,22 @@ e.g. numsEvaluator([50, 60, 30, 20, 10]);
 // console.log(nextInLine(arr, item));
 
 
-// const BMI = () => {
-//     const height = document.getElementById('h').value;
-//     const weight = document.getElementById('w').value;
+const BMI = () => {
+    const height = document.getElementById('h').value;
+    const weight = document.getElementById('w').value;
 
-//     const bmiValue = (weight/((height/100)*(height/100))).toFixed(2);
-//     // console.log(bmiValue);
+    const bmiValue = (weight/((height/100)*(height/100))).toFixed(2);
+    // console.log(bmiValue);
 
-//     if (bmiValue < 21) {
-//         document.getElementById('result').innerHTML = `Your BMI is ${bmiValue}. You are under weight.`;
-//     } else if (bmiValue < 24) {
-//         document.getElementById('result').innerHTML = `Your BMI is ${bmiValue}. You are healthy.`;
-//     } 
-//     else {
-//         document.getElementById('result').innerHTML = `Your BMI is ${bmiValue}. You are over weight.`;
-//     }
-// };
+    if (bmiValue < 21) {
+        document.getElementById('result').innerHTML = `Your BMI is ${bmiValue}. You are under weight.`;
+    } else if (bmiValue < 24) {
+        document.getElementById('result').innerHTML = `Your BMI is ${bmiValue}. You are healthy.`;
+    } 
+    else {
+        document.getElementById('result').innerHTML = `Your BMI is ${bmiValue}. You are over weight.`;
+    }
+};
 
 // const title = document.getElementsByClassName('title');
 
