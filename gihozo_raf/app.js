@@ -1,37 +1,111 @@
+// Working with string
+const str = "abcabcbb";
+
+let word = str[0],
+    newStr = str[0];
+
+const lengthFinder = (str) => {
+    for (let i = 1; i < str.length; i++) {
+        if (str[i] != word) {
+            word.concat(str[i]);
+        };
+    };
+    
+    return word;
+};
+
+console.log(lengthFinder(str));
+
+// Small & large value
+/* 
+To see how this fxn perform, you will write an array of integers.
+Then, the fxn will display small and large number.
+e.g. numsEvaluator([50, 60, 30, 20, 10]);
+*/
+
+// const numsEvaluator = (numsArr) => {
+//     let maxNum = numsArr[0],
+//         minNum = numsArr[0];
+
+//     for (let i = 1; i < numsArr.length; i++) {
+//         if (numsArr[i] > maxNum) {
+//             maxNum = numsArr[i];
+//         };
+
+//         if (numsArr[i] < minNum) {
+//             minNum = numsArr[i];
+//         }
+//     };
+
+//     return `The smallest num is ${minNum} and largest num is ${maxNum}`;
+// }; 
+
+// // numsEvaluator([50, 60, 30, 20, 10]);
+// console.log(numsEvaluator(numsArr));
+
+
 // Fibonacci
-const fibonacci = (array, totalLength) => {
-    let num1 = array[0],
-        num2 = array[1],
-        nextNum,
-        count = 2
+// const fibonacci2 = (array, totalLength) => {
+//     if (array.length >= totalLength) {
+//         return array;
+//     }
 
-    while (count < totalLength) {
-        nextNum = num1 + num2;
-        num1 = num2;
-        num2 = nextNum;
+//     array.push(array[array.length - 2] + array[array.length - 1]);
 
-        array.push(nextNum);
-        count ++;
-    ;}
+//     return fibonacci2(array, totalLength);
+// };
 
-    return array;
-};
-
-console.log(fibonacci([0, 1], 10));
-console.log(fibonacci([0, 1], 15));
+// console.log(fibonacci2([0, 1], 15));
 
 
-const fibonacci2 = (array, totalLength) => {
-    if (array.length >= totalLength) {
-        return array;
-    }
+/* 
+To see how this fxn perform, you will write an array of two consective integers and the total length (nth term).
+Then, the fxn will add the two previous values.
+e.g. numsEvaluator([50, 60, 30, 20, 10]);
+*/
+// const fibonacci = (totalLength) => {
+//     let num1 = 0,
+//         num2 = 1,
+//         nextNum,
+//         count = 2,
+//         array = [];
 
-    array.push(array[array.length - 2] + array[array.length - 1]);
+//     while (count < totalLength) {
+//         nextNum = num1 + num2;
+//         num1 = num2;
+//         num2 = nextNum;
 
-    return fibonacci2(array, totalLength);
-};
+//         array.push(nextNum);
+//         count ++;
+//     ;}
 
-console.log(fibonacci2([0, 1], 15));
+//     return array;
+// };
+
+// // console.log(fibonacci(15));
+// console.log(fibonacci(totalLength));
+
+
+// const fibonacci = (array, totalLength) => {
+//     let num1 = array[0],
+//         num2 = array[1],
+//         nextNum,
+//         count = 2
+
+//     while (count < totalLength) {
+//         nextNum = num1 + num2;
+//         num1 = num2;
+//         num2 = nextNum;
+
+//         array.push(nextNum);
+//         count ++;
+//     ;}
+
+//     return array;
+// };
+
+//  //  console.log(fibonacci([0, 1], 15));
+// console.log(fibonacci(array, totalLength));
 
 
 // // Summing elements of an array
@@ -44,6 +118,7 @@ console.log(fibonacci2([0, 1], 15));
 // };
 
 // console.log(`Sum of aray elements is: ${sum}`);
+
 
 
 // const items = [
@@ -59,7 +134,7 @@ console.log(fibonacci2([0, 1], 15));
 // ];
 
 // const getList = (items) => {
-//     let itemsList = [];
+//     let itemsList = ["FFF"];
     
 //     for (let i = 0; i < items.length; i++) {
 //         itemsList.push(items[i].name);
@@ -169,7 +244,7 @@ console.log(fibonacci2([0, 1], 15));
 // const str1 = "JAVA";
 // const str2 = "SCRIPT";
 
-// concat
+// // concat
 // console.log(str1.concat(str2));
 
 // const str = "JAVASCRIPT";
@@ -182,7 +257,7 @@ console.log(fibonacci2([0, 1], 15));
 
 // const str = "JAVASCRIPT IS THE BEST.";
 
-// // split
+// split
 // console.log(str.split(""));
 // console.log(str.split(" "));
 
@@ -509,9 +584,11 @@ console.log(fibonacci2([0, 1], 15));
 // const nextInLine = (arr, item) => {
 //     arr.push(item); // [1,2,3,4,10]
 
-//     const removeValue = arr.shift(); // 1
+//     const removeFirstValue = arr.shift(); // 1
+//     const removeLastValue = arr.pop(); // 10
 
-//     return removeValue; // 1
+//     // return removeFirstValue; // 1
+//     return removeLastValue;
 // };
 
 // console.log(nextInLine(arr, item));
@@ -644,8 +721,20 @@ console.log(fibonacci2([0, 1], 15));
 
 //     let time = `${currentTime.getFullYear()}-${currentTime.getMonth()}-${currentTime.getDate()}`;
 
+//     console.log(time);
+
+// };
+
+// displayDate();
+
+
+// const displayDate = () => {
+//     let currentTime = new Date();
+
+//     let time = `${currentTime.getFullYear()}-${currentTime.getMonth()}-${currentTime.getDate()}`;
+
 //     document.getElementById("showDate").innerHTML = `${time}`;
-// }
+// };
 
 // const companies = [
 //     {name: "Company One", category: "Finance", start: 1981, end: 2003},
@@ -706,6 +795,21 @@ console.log(fibonacci2([0, 1], 15));
 //     {name: 'Keyboard', price: 25 },
 // ];
 
+// const expensiveItems = items.filter(item => item.price >= 100);
+
+// console.log(expensiveItems);
+
+
+// const items = [
+//     {name: 'Bike', price: 100 },
+//     {name: 'TV', price: 200 },
+//     {name: 'Album', price: 10 },
+//     {name: 'Book', price: 5 },
+//     {name: 'Phone', price: 500 },
+//     {name: 'Computer', price: 1000 },
+//     {name: 'Keyboard', price: 25 },
+// ];
+
 // const filteredPrices = items.filter(item => item.price > 100);
 
 // console.log(filteredPrices);
@@ -715,6 +819,8 @@ console.log(fibonacci2([0, 1], 15));
 // const newArr = arr.filter(num => num>3);
 
 // console.log(newArr);
+
+// filter method
 
 // const items = [
 //     {name: 'Bike', price: 100 },
@@ -728,9 +834,9 @@ console.log(fibonacci2([0, 1], 15));
 
 // const itemNames = items.map(item => item.name);
 
-// const itemPrices = items.map()
+// const itemPrices = items.map(item => item.price)
 
-// console.log(items);
+// console.log(itemPrices);
 
 // const arr = [
 //     {name:"AAA", age: 20},
@@ -763,7 +869,7 @@ console.log(fibonacci2([0, 1], 15));
 // const country1 = JSON.stringify(country);
 
 // const country2 = JSON.parse(country1);
-// console.log(country2);
+// console.log(country1);
 
 
 // console.log(country);
@@ -905,8 +1011,6 @@ console.log(fibonacci2([0, 1], 15));
 // console.log(power(4, 2)); // 16
 
 // built-in functions
-
-
 
 // function isLess(a, b) {
 //     return a < b;
