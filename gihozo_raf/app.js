@@ -4,7 +4,7 @@ let xLabels1 = [],
     yLabels2 = [];
 
 const getData = async () => {
-    const response = await fetch('test.csv'),
+    const response = await fetch('test copy.csv'),
         data = await response.text();
 
     // console.log(data);
@@ -12,7 +12,8 @@ const getData = async () => {
     const usefulData = data.split('\n'),
         table = usefulData.slice(1);
 
-        // console.log(table);
+        // console.log(usefulData);
+        console.log(table);
 
     table.forEach(row => {
         const column = row.split(',')
@@ -28,6 +29,11 @@ const getData = async () => {
             
             survived = column[3];
 
+            // console.log(column);
+            // console.log(pClass);
+
+            // passenger.push({pClass, sex, age, survived});
+            
             // console.log(pClass, sex, age, survived);
             // console.log(xLabels1, ylabels1);
             // console.log(xLabels2, yLabels2);
@@ -153,31 +159,101 @@ const displayChart5 = async () => {
 
 displayChart5();
 
+const displayChart6 = async () => {
+    const labels = [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+    ];
+    
+    const data = {
+        labels: labels,
+        datasets: [{
+            label: 'Line Chart dataset',
+            data: [0, 10, 5, 2, 20, 30, 45],
+            backgroundColor: 'skyblue',
+            borderColor: 'skyblue',
+        }]
+    };
+    
+    const config = {
+        type: 'line',
+        data: data,
+        options: {}
+    };
+
+    const myChart = new Chart(
+        document.getElementById('myChart6'),
+        config
+    ); 
+};
+
+displayChart6();
 
 
-// // Working with string
-// const lengthFinder = (str) => {
-//     if (str.length == 0 || typeof(str) !== "string") return 0;
-//     if (str.length == 1) return 1;
+const displayChart7 = async () => {
+    const data = {
+        labels: [
+            'Grey',
+            'Green',
+            'Bada55'
+        ],
+        datasets: [{
+            label: 'Pie Chart dataset',
+            data: [300, 50, 100],
+            backgroundColor: [
+                // 'rgb(255, 99, 132)',
+                // 'rgb(54, 162, 235)',
+                'grey',
+                'Green',
+                // 'rgb(255, 205, 86)'
+                '#BADA55'
+            ],
+            hoverOffset: 4
+        }]
+    };
 
-//     let strArr = str.split(""),
-//         newStrArr = [],
-//         longestSubStringLength = 0,
-//         count = 0;
+    const config = {
+        type: 'pie',
+        data: data,
+    };
 
-//     for (let i = 0; i < str.length; i++) {
-//         if (newStrArr[strArr[i]] !== undefined && newStrArr[strArr[i]] >= count) {
-//             count = newStrArr[strArr[i]] + 1;
-//         };
+    const myChart = new Chart(
+        document.getElementById('myChart7'),
+        config
+    );
+};
 
-//         newStrArr[strArr[i]] = i;
+displayChart7();
 
-//         longestSubStringLength = Math.max(longestSubStringLength, (i-count+1));
 
-//     };
 
-//     return longestSubStringLength;
-// };
+// Working with string
+const lengthFinder = (str) => {
+    if (str.length == 0 || typeof(str) !== "string") return 0;
+    if (str.length == 1) return 1;
+
+    let strArr = str.split(""),
+        newStrArr = [],
+        longestSubStringLength = 0,
+        count = 0;
+
+    for (let i = 0; i < str.length; i++) {
+        if (newStrArr[strArr[i]] !== undefined && newStrArr[strArr[i]] >= count) {
+            count = newStrArr[strArr[i]] + 1;
+        };
+
+        newStrArr[strArr[i]] = i;
+
+        longestSubStringLength = Math.max(longestSubStringLength, (i-count+1));
+
+    };
+
+    return longestSubStringLength;
+};
 
 
 // const str = "abcabcbb";
@@ -358,6 +434,23 @@ const fibonacci = (totalLength) => {
 // console.log(`Sum of aray elements is: ${sum}`);
 
 
+// grading function
+let num;
+
+function grader(num) {
+    if (num >= 0.8) return "You have grade A.";
+        // console.log("You have grade A.");
+    if (num >= 0.7) return "You have grade B.";
+        // console.log("You have grade B.");
+    if (num >= 0.6) return "You have grade C.";
+        // console.log("You have grade C.");
+    if (num >= 0.5) return "You have grade D.";
+        // console.log("You have grade D.");
+    return "You have grade F.";
+    // console.log("You have grade F.");
+};
+
+grader(num);
 
 // const items = [
 //     {
@@ -412,17 +505,177 @@ const fibonacci = (totalLength) => {
 
 // console.log(multiply(arr, n));
 
+let arr = [];
 
-// function multiply(arr, n) {
-//     let product = 1;
-//     for (let i = 0; i < n; i++) {
-//         product *= arr[i];    // product = product * arr[i];
-//     }
-//     return product;
-// };
+function multiply(arr) {
+    let product = 1;
+    for (let i = 0; i < arr.length; i++) {
+        product *= arr[i];    // product = product * arr[i];
+    }
+    return product;
+};
 
-// multiply(arr, n);
+multiply(arr);
 
+
+function telephoneCheck(str) {
+    let regExp = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+
+    let newStr = str.match(regExp);
+
+    // console.log(newStr);
+    
+    if (str.match(regExp)) return true;
+    return false;
+};
+
+// console.log(telephoneCheck("555-555-5555"));
+// console.log(telephoneCheck("1 555-555-5555"));
+// console.log(telephoneCheck("1 (555) 555-5555"));
+
+
+function rot13(str) {
+    var solved = "";
+    for (var i=0; i<str.length; i++) {
+        var asciiNum = str[i].charCodeAt();
+        if (asciiNum >= 65 && asciiNum <= 77) {
+            solved += String.fromCharCode(asciiNum +13);
+        } else if (asciiNum >= 78 && asciiNum <= 90) {
+            solved += String.fromCharCode(asciiNum -13);
+        } else {
+            solved += str[i];
+        }
+    }
+    return solved;
+}
+
+// console.log(rot13("SERR PBQR PNZC"));
+// console.log(rot13("SMALL ANIMAL FEED PELLET MAKING MACHINE"));
+
+// console.log(rot13("FZNYY NAVZNY SRRQ CRYYRG ZNXVAT ZNPUVAR"));
+
+
+
+function convertToRoman(num) {
+    const numToRoman = {
+        M: 1000,
+        CM: 900,
+        D: 500,
+        CD: 400,
+        C: 100,
+        XC: 90,
+        L: 50,
+        XL: 40,
+        X: 10,
+        IX: 9,
+        V: 5,
+        IV: 4,
+        I: 1
+    };
+
+    let roman = '';
+
+    for (let key in numToRoman) {
+        while (num >= numToRoman[key]) {
+            roman += key;
+            num -= numToRoman[key]
+        };
+    };
+
+    return roman;
+};
+
+function palindrome(str) {
+    let regExp = /[\W_]/g,
+    smallStr = str.toLowerCase().replace(regExp, ''),
+    reversedStr = smallStr.split('').reverse().join('');
+
+        console.log(reversedStr);
+    if (smallStr === reversedStr) return true;
+    return false;
+}
+
+function countdown(n){
+    if (n < 1) {
+      return [];
+    }
+    else {
+      const countArray = countdown(n - 1);
+      countArray.push(n);
+  
+      return countArray;
+    }
+  }
+
+
+// Setup
+const recordCollection = {
+    2548: {
+        albumTitle: 'Slippery When Wet',
+        artist: 'Bon Jovi',
+        tracks: ['Let It Rock', 'You Give Love a Bad Name']
+    },
+    2468: {
+        albumTitle: '1999',
+        artist: 'Prince',
+        tracks: ['1999', 'Little Red Corvette']
+    },
+    1245: {
+        artist: 'Robert Palmer',
+        tracks: []
+    },
+    5439: {
+        albumTitle: 'ABBA Gold'
+    }
+};
+
+// Only change code below this line
+function updateRecords(records, id, prop, value) {
+    if (prop !== "tracks" && value !== "") {
+        records[id][prop] = value;
+    }
+    else if (prop === "tracks" && records[id].hasOwnProperty("tracks") === false) {
+        records[id][prop] = [value];
+    } 
+    else if (prop === "tracks" && value !== "") {
+        records[id][prop].push(value); 
+    }
+    else if (value === "") {
+        delete records[id][prop];
+    }
+    return records;
+}
+
+updateRecords(recordCollection, 5439, 'artist', 'ABBA');
+
+
+let count = 0;
+
+function cc(card) {
+  // Only change code below this line
+    switch (card) {
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+        case 6:
+        count ++;
+        break;
+
+        case 10:
+        case 'J':
+        case 'Q':
+        case 'K':
+        case 'A':
+        count --;
+        break;
+    };
+
+    if (count > 0) return `${count} Bet`;
+    return  `${count} Hold`;
+}
+
+cc(2); cc(3); cc(7); cc('K'); cc('A');
 
 
 // Replace Loops Using Recursion
@@ -991,7 +1244,6 @@ const BMI = () => {
 // console.log(techCompanies);
 
 
-
 // const myArr = [
 //     {name:"AAA", age: 20},
 //     {name:"BBB", age: 21},
@@ -1033,6 +1285,23 @@ const BMI = () => {
 //     {name: 'Keyboard', price: 25 },
 // ];
 
+// items.forEach(item => {
+//     const names = item.name
+
+//     console.log(names);
+// });
+
+
+// const items = [
+//     {name: 'Bike', price: 100 },
+//     {name: 'TV', price: 200 },
+//     {name: 'Album', price: 10 },
+//     {name: 'Book', price: 5 },
+//     {name: 'Phone', price: 500 },
+//     {name: 'Computer', price: 1000 },
+//     {name: 'Keyboard', price: 25 },
+// ];
+
 // const expensiveItems = items.filter(item => item.price >= 100);
 
 // console.log(expensiveItems);
@@ -1054,7 +1323,7 @@ const BMI = () => {
 
 // const arr = [1, 2, 3, 4, 5, 6];
 
-// const newArr = arr.filter(num => num>3);
+// const newArr = arr.filter(num => num > 3);
 
 // console.log(newArr);
 
@@ -1074,7 +1343,7 @@ const BMI = () => {
 
 // const itemPrices = items.map(item => item.price)
 
-// console.log(itemPrices);
+// console.log(itemNames, itemPrices);
 
 // const arr = [
 //     {name:"AAA", age: 20},
