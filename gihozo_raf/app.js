@@ -1,4 +1,10 @@
 // Working with string
+/* 
+To see how this fxn perform, you will write a fxn and pass in it
+a string as an argument with repetitive characters.
+Then, the fxn will return the length of the longest substring.
+e.g. lengthFinder('abcabcbb');
+*/
 const lengthFinder = (str) => {
     if (str.length == 0 || typeof(str) !== "string") return 0;
     if (str.length == 1) return 1;
@@ -21,6 +27,8 @@ const lengthFinder = (str) => {
 
     return longestSubStringLength;
 };
+
+// lengthFinder('abcabcbb');
 
 
 // const str = "abcabcbb";
@@ -83,7 +91,7 @@ const lengthFinder = (str) => {
 
 // Small & large value
 /* 
-To see how this fxn perform, you will write an array of integers.
+To see how this fxn perform, you will write a fxn and pass in it an argument of array of integers.
 Then, the fxn will display small and large number.
 e.g. numsEvaluator([50, 60, 30, 20, 10]);
 */
@@ -109,6 +117,27 @@ const numsEvaluator = (numsArr) => {
 // console.log(numsEvaluator(numsArr));
 
 
+/* 
+To see how this fxn perform, you will write a fxn and pass in it an argument the total length (nth term).
+Then, the fxn will return an array of the corresponding integers.
+e.g. fibonacci(15);
+*/
+const fibonacci = (totalLength) => {
+    let num1 = 0, num2 = 1, nextNum, count = 2, arr = [num1, num2]; 
+    console.log('Fibonacci sequence revised');
+
+    while (count < totalLength) {
+        nextNum = num1 + num2;
+        num1 = num2;
+        num2 = nextNum;
+
+        arr.push(nextNum);
+        count ++;
+    };
+
+    return arr;
+};
+
 // Fibonacci
 // const fibonacci2 = (array, totalLength) => {
 //     if (array.length >= totalLength) {
@@ -123,11 +152,10 @@ const numsEvaluator = (numsArr) => {
 // console.log(fibonacci2([0, 1], 15));
 
 
-/* 
-To see how this fxn perform, you will write an array of two consective integers and the total length (nth term).
-Then, the fxn will add the two previous values.
-e.g. numsEvaluator([50, 60, 30, 20, 10]);
-*/
+
+
+// fibonacci(15);
+
 // const fibonacci = (totalLength) => {
 //     let num1 = 0,
 //         num2 = 1,
@@ -147,21 +175,21 @@ e.g. numsEvaluator([50, 60, 30, 20, 10]);
 //     return array;
 // };
 
-const fibonacci = (totalLength) => {
-    let num1 = 0, num2 = 1, nextNum, count = 2, array = [];
-    console.log("Fibonacci sequence!");
+// const fibonacci = (totalLength) => {
+//     let num1 = 0, num2 = 1, nextNum, count = 2, array = [num1, num2];
+//     console.log("Fibonacci sequence!");
 
-    while (count < totalLength) {
-        nextNum = num1 + num2;
-        num1 = num2;
-        num2 = nextNum;
+//     while (count < totalLength) {
+//         nextNum = num1 + num2;
+//         num1 = num2;
+//         num2 = nextNum;
 
-        array.push(nextNum);
-        count ++
-    };
+//         array.push(nextNum);
+//         count ++
+//     };
 
-    return array;
-};
+//     return array;
+// };
 
 // // console.log(fibonacci(15));
 // console.log(fibonacci(totalLength));
@@ -202,18 +230,24 @@ const fibonacci = (totalLength) => {
 
 
 // grading function
+/* 
+To see how this fxn perform, you will write this fxn in your console with an argument between 0 inclusive and 1 exclusive.
+Then, the fxn will evaluate your grade.
+e.g. grader(0.76);
+*/
 let num;
 
 function grader(num) {
-    if (num >= 0.8) return "You have grade A.";
+    if (num >= 1 || num < 0) return "You entered an invalid grade";
+    if (num >= 0.8) return "You have grade A";
         // console.log("You have grade A.");
-    if (num >= 0.7) return "You have grade B.";
+    if (num >= 0.7) return "You have grade B";
         // console.log("You have grade B.");
-    if (num >= 0.6) return "You have grade C.";
+    if (num >= 0.6) return "You have grade C";
         // console.log("You have grade C.");
-    if (num >= 0.5) return "You have grade D.";
+    if (num >= 0.5) return "You have grade D";
         // console.log("You have grade D.");
-    return "You have grade F.";
+    return "You have grade F";
     // console.log("You have grade F.");
 };
 
@@ -283,6 +317,7 @@ function multiply(arr) {
 };
 
 multiply(arr);
+// multiply([2, 3, 4, 5, 6]);
 
 
 function telephoneCheck(str) {
@@ -352,6 +387,8 @@ function convertToRoman(num) {
     return roman;
 };
 
+// convertToRoman(561);
+
 function palindrome(str) {
     let regExp = /[\W_]/g,
     smallStr = str.toLowerCase().replace(regExp, ''),
@@ -360,19 +397,27 @@ function palindrome(str) {
         console.log(reversedStr);
     if (smallStr === reversedStr) return true;
     return false;
-}
+};
+
+// palindrome("A man, a plan, a canal. Panama@");
+// palindrome("not a palindrome");
+// palindrome("_eye");
+
 
 function countdown(n){
     if (n < 1) {
-      return [];
+        return [];
     }
     else {
-      const countArray = countdown(n - 1);
-      countArray.push(n);
-  
-      return countArray;
+        const countArray = countdown(n - 1);
+        countArray.push(n);
+
+        return countArray;
     }
-  }
+};
+
+// countdown(-1);
+// countdown(10);
 
 
 // Setup

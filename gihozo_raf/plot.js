@@ -1,10 +1,10 @@
 let xLabels1 = [],
     yLabels1 = [],
     xLabels2 = [],
-    yLabels2 = [];
+    yLabels2 = [], result = 0;
 
 const getData = async () => {
-    const response = await fetch('test copy.csv'),
+    const response = await fetch('test.csv'),
         data = await response.text();
 
     // console.log(data);
@@ -13,7 +13,7 @@ const getData = async () => {
         table = usefulData.slice(1);
 
         // console.log(usefulData);
-        console.log(table);
+        // console.log(table);
 
     table.forEach(row => {
         const column = row.split(',')
@@ -29,17 +29,53 @@ const getData = async () => {
             
             survived = column[3];
 
-            // console.log(column);
+            // console.log(column[3]);
             // console.log(pClass);
 
-            // passenger.push({pClass, sex, age, survived});
-            
             // console.log(pClass, sex, age, survived);
             // console.log(xLabels1, ylabels1);
             // console.log(xLabels2, yLabels2);
     });
 
 };
+
+// const getData = async () => {
+//     const response = await fetch('test copy.csv'),
+//         data = await response.text();
+
+//     // console.log(data);
+
+//     const usefulData = data.split('\n'),
+//         table = usefulData.slice(1);
+
+//         // console.log(usefulData);
+//         // console.log(table);
+
+//     table.forEach(row => {
+//         const column = row.split(',')
+//             pClass = column[0],
+//             yLabels2.push(pClass),
+            
+//             sex = column[1],
+//             xLabels1.push(sex),
+//             xLabels2.push(sex),
+
+//             age = column[2],
+//             yLabels1.push(age),
+            
+//             survived = column[3];
+
+//             // console.log(column);
+//             // console.log(pClass);
+
+//             // passenger.push({pClass, sex, age, survived});
+            
+//             // console.log(pClass, sex, age, survived);
+//             // console.log(xLabels1, ylabels1);
+//             // console.log(xLabels2, yLabels2);
+//     });
+
+// };
 
 
 const displayChart1 = async () => {
@@ -197,18 +233,15 @@ displayChart6();
 const displayChart7 = async () => {
     const data = {
         labels: [
-            'Grey',
-            'Green',
-            'Bada55'
+            'Died',
+            'Survived'
         ],
         datasets: [{
             label: 'Pie Chart dataset',
-            data: [300, 50, 100],
+            data: [55, 45],
             backgroundColor: [
-                // 'rgb(255, 99, 132)',
-                // 'rgb(54, 162, 235)',
-                'grey',
-                'Green',
+                // 'grey',
+                '#ff8080',
                 // 'rgb(255, 205, 86)'
                 '#BADA55'
             ],
@@ -228,3 +261,36 @@ const displayChart7 = async () => {
 };
 
 displayChart7();
+
+
+const displayChart8 = async () => {
+    const data = {
+        labels: [
+            'PClass 1',
+            'PClass 2',
+            'PClass 3'
+        ],
+        datasets: [{
+            label: 'Pie Chart dataset',
+            data: [130, 220, 400],
+            backgroundColor: [
+                '#b35900',
+                '#ff8000',
+                '#ffb366'
+            ],
+            hoverOffset: 4
+        }]
+    };
+
+    const config = {
+        type: 'doughnut',
+        data: data,
+    };
+
+    const myChart = new Chart(
+        document.getElementById('myChart8'),
+        config
+    );
+};
+
+displayChart8();
